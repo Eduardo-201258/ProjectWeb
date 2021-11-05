@@ -1,13 +1,20 @@
-function Products(props){
-    return (
-        <li key={props.id} className= {`product-list_item ${props.name ? 'wish-list_item--done' : ''}`}>
-            <input id={ props.id } type="checkbox"
-                   checked = {props.stock}
-                   onChange= {e => props.onDoneChange(e.target.checked)} />
-            <label htmlFor={ props.id }>{props.name}</label>
-        </li>
-    );
+import React from "react";
 
-}
+const Products = ({products, note, setNote, product}) =>{
+
+    const {id, urlImage, name, price, description, stock} = products;
+
+    return(
+        <div>
+            <ul>
+                <li>
+                    <input id={id} type="Checkbox"/>
+                    <img src={urlImage} width="100px"/>
+                    <label htmlFor={ `product${id}` }>{name}</label>
+                </li>
+            </ul>
+        </div>
+    );
+};
 
 export default Products;
