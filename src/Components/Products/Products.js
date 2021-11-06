@@ -1,13 +1,11 @@
 import React from "react";
 
-var i =0;
 const Products = ({products, saleNote, setSaleNote, product}) =>{
 
 
     const {id, code, urlImage, name, price, description, stock} = products;
 
     const addSale = (id) => {
-        i++;
         const filterProduct = product.filter((products) => products.id === id);
         setSaleNote([...saleNote, ...filterProduct])
     }
@@ -15,28 +13,42 @@ const Products = ({products, saleNote, setSaleNote, product}) =>{
     const deleteSale = id =>{
         const filterNote = saleNote.filter(products => products.id !== id);
         setSaleNote(filterNote)
+        console.log({saleNote})
     }
 
 
     return(
         <div>
             <ul>
-                <li>
-                    <img src={urlImage} width="100px"/>
-                    <br/>
-                    {description}
-                    <br/>
-                    Codigo: {code}.
-                    <br/>
-                    Stock: {stock}.
-                    <br/>
-                    Precio: {price}.
-                    <br/>
-                </li>
+
                 {product ?(
-                    <button type='button' onClick={() => addSale(id)}>Agregar producto</button>
+                        <li>
+                            <img src={urlImage} width="100px"/>
+                            <br/>
+                            {description}
+                            <br/>
+                            Codigo: {code}.
+                            <br/>
+                            Stock: {stock}.
+                            <br/>
+                            Precio: {price}.
+                            <br/>
+                            <button type='button' onClick={() => addSale(id)}>Agregar producto</button>
+                        </li>
+
                 ):(
-                    <button type='button' onClick={() => deleteSale(id)}>Eliminar</button>
+                    <li>
+                        <img src={urlImage} width="100px"/>
+                        <br/>
+                        {description}
+                        <br/>
+                        Codigo: {code}.
+                        <br/>
+                        Precio: {price}.
+                        <br/>
+                        <button type='button' onClick={() => deleteSale(id)}>Eliminar</button>
+                    </li>
+
                 )
                 }
             </ul>

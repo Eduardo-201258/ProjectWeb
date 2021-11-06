@@ -6,7 +6,7 @@ import SaleNote from "./Components/SalesNote/SaleNote";
 
 function App(){
     const [product, setProduct] = useState([
-        { id: 1,
+        { id: 0,
             code: 750100,
             urlImage: 'https://www.sanborns.com.mx/imagenes-sanborns-ii/1200/7501008491966.jpg',
             name: 'Aspirina®',
@@ -14,7 +14,7 @@ function App(){
             description: 'Aspirina® para dolor de cabeza y resfriado, caja con 40 tabletas, 500mg cada una.',
             stock: 8,
         },
-        { id: 2,
+        { id: 1,
             code: 750111,
             urlImage: 'https://www.farmaciasespecializadas.com/ccstore/v1/images/?source=/file/v6287467053812393761/products/11944.png&height=475&width=475',
             name: 'Tempra Forte',
