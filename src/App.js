@@ -40,11 +40,12 @@ function App(){
                     product={product}
                 />
             ))}
-            <SaleNote saleNote={saleNote}/>
+            <SaleNote saleNote={saleNote} setSaleNote={setSaleNote}/>
         </Fragment>
 
 
     );
+
 
 }
 export default App;

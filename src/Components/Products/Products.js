@@ -2,6 +2,7 @@ import React from "react";
 import SaleNote from "../SalesNote/SaleNote";
 
 const Products = ({products, saleNote, setSaleNote, product}) =>{
+    
     const {id, code, urlImage, name, price, description, stock} = products;
 
     const addSale = (id) => {
@@ -9,12 +10,11 @@ const Products = ({products, saleNote, setSaleNote, product}) =>{
         setSaleNote([...saleNote, ...filterProduct])
     }
 
-    const deleteSale = (id) =>{
+    const deleteSale = id =>{
         const filterNote = saleNote.filter(products => products.id !== id);
-
-        setSaleNote({saleNote:filterNote})
-
+        setSaleNote(filterNote)
     }
+
 
     return(
         <div>
