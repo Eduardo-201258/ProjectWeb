@@ -1,20 +1,45 @@
 import React from "react";
+import SaleNote from "../SalesNote/SaleNote";
 
-const Products = ({products, note, setNote, product}) =>{
+const Products = ({products, saleNote, setSaleNote, product}) =>{
+    const {id, code, urlImage, name, price, description, stock} = products;
 
-    const {id, urlImage, name, price, description, stock} = products;
+    const addSale = (id) => {
+        const filterProduct = product.filter((products) => products.id === id);
+        setSaleNote([...saleNote, ...filterProduct])
+    }
+
+    const deleteSale = (id) =>{
+        const filterNote = saleNote.filter(products => products.id !== id);
+
+        setSaleNote({saleNote:filterNote})
+
+    }
 
     return(
         <div>
             <ul>
                 <li>
-                    <input id={id} type="Checkbox"/>
                     <img src={urlImage} width="100px"/>
-                    <label htmlFor={ `product${id}` }>{name}</label>
+                    <br/>
+                    {description}
+                    <br/>
+                    Codigo: {code}.
+                    <br/>
+                    Stock: {stock}.
+                    <br/>
+                    Precio: {price}.
+                    <br/>
                 </li>
+                {product ?(
+                    <button type='button' onClick={() => addSale(id)}>Agregar producto</button>
+                ):(
+                    <button type='button' onClick={() => deleteSale(id)}>Eliminar</button>
+                )
+                }
             </ul>
         </div>
     );
-};
+}
 
 export default Products;
