@@ -1,11 +1,13 @@
 import React from "react";
-import SaleNote from "../SalesNote/SaleNote";
 
+var i =0;
 const Products = ({products, saleNote, setSaleNote, product}) =>{
-    
+
+
     const {id, code, urlImage, name, price, description, stock} = products;
 
     const addSale = (id) => {
+        i++;
         const filterProduct = product.filter((products) => products.id === id);
         setSaleNote([...saleNote, ...filterProduct])
     }
