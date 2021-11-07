@@ -13,6 +13,7 @@ function App(){
             price: 45,
             description: 'Aspirina® para dolor de cabeza y resfriado, caja con 40 tabletas, 500mg cada una.',
             stock: 8,
+            amount: 0,
         },
         { id: 1,
             code: 750111,
@@ -21,6 +22,16 @@ function App(){
             price: 75,
             description: 'Para el dolor, fiebre y malestares, paracetamol caja con 24 tabletas de 500mg cada una.',
             stock: 6,
+            amount: 0,
+        },
+        { id: 2,
+            code: 750122,
+            urlImage: 'https://www.farmaciasespecializadas.com/ccstore/v1/images/?source=/file/v6287467053812393761/products/11944.png&height=475&width=475',
+            name: 'Tempra Forte',
+            price: 75,
+            description: 'Para el dolor, fiebre y malestares, paracetamol caja con 24 tabletas de 500mg cada una.',
+            stock: 6,
+            amount: 0,
         },
 
     ])
@@ -38,6 +49,7 @@ function App(){
                     saleNote={saleNote}
                     setSaleNote={setSaleNote}
                     product={product}
+                    amount ={products.amount}
                 />
             ))}
             <SaleNote saleNote={saleNote} setSaleNote={setSaleNote}/>
