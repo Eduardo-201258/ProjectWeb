@@ -49,12 +49,11 @@ function App(){
                     saleNote={saleNote}
                     setSaleNote={setSaleNote}
                     product={product}
-                    amount ={products.amount}
                 />
             ))}
             <SaleNote saleNote={saleNote} setSaleNote={setSaleNote}/>
-        </Fragment>
 
+        </Fragment>
 
     );
 
