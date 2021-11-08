@@ -37,4 +37,67 @@
   }
 }
 
-
+#titulo{
+  text-align: center;
+  background-color: #61dafb;
+}
+#producto{
+  background-color: #e8fff0;
+  border: 1px solid #DDDDDD;
+  border-radius: 6px 6px 6px 6px;
+  position: relative;
+  display: inline-block;
+  left: 50px;
+  width: 500px;
+  text-decoration: none;
+}
+.saleNote {
+  background: none repeat scroll 0 0 #FFFFFF;
+  border: 1px solid #DDDDDD;
+  border-radius: 6px 6px 6px 6px;
+  bottom: 350px;
+  left: 800px;
+  margin-left: -200px;
+  padding: 10px 0 0;
+  text-align: left;
+  width: 600px;
+  height: 500px;
+  top: 60px;
+  z-index: 15;
+  position: fixed;
+  text-align: center;
+  word-wrap: break-word;
+}
+scroll-container {
+  display: block;
+  width: 550px;
+  height: 500px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+#botonAgregar{
+  background-color: aquamarine;
+}
+#botonEliminar{
+  position: relative;
+  background-color: #e86161;
+  padding: 1%;
+  left: -50px;
+}
+#botonConfirmar{
+  position: relative;
+  background-color: #55f355;
+  padding: 1%;
+  left: 40px;
+}
+#totalF{
+  position: fixed;
+  z-index: 99;
+  left: 80%;
+  top: 570px;
+}
+#totalFinal{
+  position: relative;
+  top: -35px;
+  left: 142px;
+}

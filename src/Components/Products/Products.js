@@ -6,8 +6,18 @@ const Products = ({products, saleNote, setSaleNote, product}) =>{
 
     const {id, code, urlImage, name, price, description, stock, amount, total} = products;
 
+    const updateList = () =>{
+        let filterProduct = saleNote.filter((products) => products.id === id);
+        let filterNote = saleNote.filter((products) => products.id !== id);
 
-    const addSale = function(id) {
+        totalPay = totalPay - (filterProduct[0].amount * filterProduct[0].price);
+        view.innerHTML = totalPay;
+
+        filterProduct[0].amount = 0;
+        setSaleNote(filterNote);
+    }
+
+    const addSale = (id) => {
         let filterProduct = product.filter((products) => products.id === id);
         let value = true;
         var producto = [];
@@ -29,6 +39,7 @@ const Products = ({products, saleNote, setSaleNote, product}) =>{
                 filterProduct[0].stock = filterProduct[0].stock -1;
                 filterProduct[0].amount = filterProduct[0].amount +1;
                 finalTotal = finalTotal + filterProduct[0].price * filterProduct[0].amount;
+                filterProduct[0].total = 0;
                 filterProduct[0].total = filterProduct[0].total + finalTotal;
                 setSaleNote([...saleNote, ...filterProduct]);
 
@@ -51,7 +62,6 @@ const Products = ({products, saleNote, setSaleNote, product}) =>{
         products.stock = products.stock + filterProduct[0].amount;
 
         totalPay = totalPay - (filterProduct[0].amount * filterProduct[0].price);
-        console.log(totalPay);
         view.innerHTML = totalPay;
 
         filterProduct[0].amount = 0;
@@ -60,8 +70,9 @@ const Products = ({products, saleNote, setSaleNote, product}) =>{
 
     return(
         <div>
-            <ul>
-                {product ?(
+            <div id="producto">
+                <ul>
+                    {product ?(
                         <li>
                             <img src={urlImage} width="100px"/>
                             <br/>
@@ -75,28 +86,24 @@ const Products = ({products, saleNote, setSaleNote, product}) =>{
                             <br/>
                             Precio unidad: ${price}.
                             <br/>
-                            <button type='button' onClick={() => addSale(id)}>Agregar producto</button>
+                            <button id="botonAgregar" type='button' onClick={() => addSale(id)}>Agregar producto</button>
                         </li>
-                ):(
-                    <li>
-                        <br/>
-                        {name}
-                        <br/>
-                        Precio Unidad: ${price}.
-                        <br/>
-                        Cantidad: {amount}.
-                        <br/>
-                        Total: ${total}
-                        <br/>
-                        <button type='button' onClick={() => deleteSale(id)}>Eliminar</button>
-                        <button type='button' onClick={() => deleteSale(id)}>CONFIRMAR</button>
-                    </li>
-                )
-                }
+                    ):(
+                        <li>
+                            <pre>
+                                {name}          ${price}.          {amount}.         Total:${total}
+                            </pre>
+                            <button id="botonEliminar" type='button' onClick={() => deleteSale(id)}>Eliminar</button>
+                            <button id="botonConfirmar" type='button' onClick={() => updateList(id)}>Confirmar</button>
+                        </li>
+                    )
+                    }
 
-            </ul>
+                </ul>
 
+            </div>
         </div>
+
 
     );
 
